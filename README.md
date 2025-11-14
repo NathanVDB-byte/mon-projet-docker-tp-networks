@@ -28,7 +28,7 @@ docker-compose up --build -d
 ## Fichiers principaux
 
 ### compose.yml
-
+'
 Définit les services (db, app, proxy) et configure les réseaux et sous-réseaux personnalisés.
 
 Extrait exemple :
@@ -83,7 +83,7 @@ services:
         ipv4_address: 172.31.0.4
       frontend_net:
     restart: unless-stopped
-
+'
 
 ---
 
