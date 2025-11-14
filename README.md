@@ -1,4 +1,4 @@
-TP Multi-container Flask – MariaDB – Nginx
+## TP Multi-container Flask – MariaDB – Nginx
 
 Ce projet met en œuvre une stack multi-conteneurs Docker pour déployer :
 Une base de données MariaDB,
