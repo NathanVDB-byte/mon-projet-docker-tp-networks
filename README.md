@@ -86,7 +86,7 @@ Pour garantir une sécurité maximale lors de la connexion à la base de donnée
 Cette méthode évite toute incohérence liée au changement d'adresse IP à chaque redémarrage ou reconstruction des conteneurs.
 
 L'utilisateur MariaDB créé dans le script SQL (fichier mariadb-init.sql) est ainsi limité à cette IP unique :
-  - 172.31.0.3
+  - 172.31.0.2
 
 Avantage : Si l'app obtenait une IP différente, elle n'aurait plus accès à la base en raison de la restriction sur l'adresse IP spécifiée.
 
