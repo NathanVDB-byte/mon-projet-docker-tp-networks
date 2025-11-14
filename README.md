@@ -240,9 +240,12 @@ docker push nathanvdb/tp-networks:latest
 
 L’image apparaît dans ton dépôt sur hub.docker.com, prête à être utilisée.
 
+Lien pour accéder à mon docker hub :
 https://hub.docker.com/repository/docker/nathanvdb/tp-networks-app/general
 
+
 <img width="922" height="732" alt="image" src="https://github.com/user-attachments/assets/6b0eb75c-b9a0-472c-994d-43b8b3c43990" />
+
 
 <img width="1832" height="632" alt="image" src="https://github.com/user-attachments/assets/ad597a48-9ebc-4e2c-848f-a1dd153f29f5" />
 
