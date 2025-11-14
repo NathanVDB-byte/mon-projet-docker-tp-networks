@@ -12,7 +12,13 @@ Ce projet met en œuvre une stack multi-conteneurs Docker pour déployer :
 Deux réseaux Docker séparés :
 
 - **backend_net** : communication entre l’application et la base de données (subnet : `172.31.0.0/24`).
+  
+  <img width="696" height="958" alt="image" src="https://github.com/user-attachments/assets/49202b9b-c515-4f00-8541-4323fb359ecc" />
+
 - **frontend_net** : communication entre l’application et le proxy (subnet : `172.31.1.0/24`).
+  
+  <img width="686" height="760" alt="image" src="https://github.com/user-attachments/assets/b7405b48-fba5-40cb-9732-ade6238be810" />
+
 
 ---
 
