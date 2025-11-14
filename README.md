@@ -203,8 +203,48 @@ La connexion est refusée comme attendu :
 
 <img width="937" height="115" alt="image" src="https://github.com/user-attachments/assets/d7454eed-8671-48d0-98d6-5930add08848" />
 
+---
 
+### Push mon image Dockerfile sur Docker HUB :
 
+Pour pousser une image Docker créée avec ton Dockerfile sur Docker Hub, voici la procédure standard :
+
+1. Construire l’image Docker
+Positionne-toi dans le dossier contenant ton Dockerfile puis :
+
+```bash
+docker build -t nathanvdb/tp-networks:latest .
+```
+
+2. Te connecter à Docker Hub
+Si tu n’es pas déjà connecté :
+
+```bash
+docker login
+```
+Entre ton identifiant et ton mot de passe Docker Hub.
+
+3. (Optionnel) Taguer l’image
+(si oublié de le faire au build)
+
+```bash
+docker tag source_image nathanvdb/tp-networks:latest
+```
+
+4. Pousser l’image sur Docker Hub
+```bash
+docker push nathanvdb/tp-networks:latest
+```
+
+5. Vérifier sur ton compte Docker Hub
+
+L’image apparaît dans ton dépôt sur hub.docker.com, prête à être utilisée.
+
+https://hub.docker.com/repository/docker/nathanvdb/tp-networks-app/general
+
+<img width="922" height="732" alt="image" src="https://github.com/user-attachments/assets/6b0eb75c-b9a0-472c-994d-43b8b3c43990" />
+
+<img width="1832" height="632" alt="image" src="https://github.com/user-attachments/assets/ad597a48-9ebc-4e2c-848f-a1dd153f29f5" />
 
 
 
