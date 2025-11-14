@@ -122,7 +122,7 @@ docker ps -a
 Personnellement, j'utilise un conteneur qui permet de manager depuis une interface web (Portainer) :
 <img width="1858" height="559" alt="image" src="https://github.com/user-attachments/assets/d06e7b5c-8628-42f6-a9f5-7144c13ac9fa" />
 
-Je verifie que l'application est accessible depuis l'IP de ta VM Docker :
+Je verifie que l'application est accessible depuis l'IP de la VM Docker :
 
 <img width="446" height="143" alt="image" src="https://github.com/user-attachments/assets/67caa1d0-a6db-4d0f-8b0f-afc700b7034f" />
 
@@ -132,6 +132,7 @@ Je verifie l’accès à la base de données via la page web /health :
 
 Ensuite je me connecte au conteneur (via Portainer) pour tester en CLI :
 <img width="1490" height="431" alt="image" src="https://github.com/user-attachments/assets/956822d3-95b1-4a46-a337-25e7448fdd75" />
+
 Execution des commandes suivantes :
 ```
 apt update
