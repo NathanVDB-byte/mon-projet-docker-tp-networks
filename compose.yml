@@ -17,7 +17,7 @@ services:
     image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: db
+      MYSQL_DATABASE: appdb
     volumes:
       - ./script/mariadb-init.sql:/docker-entrypoint-initdb.d/mariadb-init.sql
     networks:
