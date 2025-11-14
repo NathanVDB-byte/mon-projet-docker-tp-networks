@@ -120,6 +120,7 @@ docker ps -a
 ```
 ### Gestion via interface web, Portainer :
 Personnellement, j'utilise un conteneur qui permet de manager depuis une interface web (Portainer) :
+
 <img width="1858" height="559" alt="image" src="https://github.com/user-attachments/assets/d06e7b5c-8628-42f6-a9f5-7144c13ac9fa" />
 
 Je verifie que l'application est accessible depuis l'IP de la VM Docker :
@@ -131,6 +132,7 @@ Je verifie l’accès à la base de données via la page web /health :
 <img width="414" height="166" alt="image" src="https://github.com/user-attachments/assets/bae3b743-a4db-4473-9cac-fe9940277279" />
 
 Ensuite je me connecte au conteneur (via Portainer) pour tester en CLI :
+
 <img width="1490" height="431" alt="image" src="https://github.com/user-attachments/assets/956822d3-95b1-4a46-a337-25e7448fdd75" />
 
 Execution des commandes suivantes :
@@ -139,6 +141,7 @@ apt update
 apt install mariadb-client
 ```
 Pour ma part c'est deja effectué en off :
+
 <img width="706" height="228" alt="image" src="https://github.com/user-attachments/assets/9d208663-ee4c-43c8-af1a-8930c23c99d0" />
 
 Test de la connexion à MariaDB depuis le conteneur app :
@@ -146,6 +149,7 @@ Test de la connexion à MariaDB depuis le conteneur app :
 mysql -h 172.31.0.3 -u appuser -papppass
 ```
 La connexion s'effectue correctement :
+
 <img width="791" height="197" alt="image" src="https://github.com/user-attachments/assets/61ea5eba-0ed3-4d31-98c2-105da161adba" />
 
 
@@ -158,6 +162,7 @@ Effectue la même commande depuis la VM :
 mysql -h 172.31.0.3 -u appuser -papppass
 ```
 La connexion est refusée comme attendu :
+
 <img width="937" height="115" alt="image" src="https://github.com/user-attachments/assets/d7454eed-8671-48d0-98d6-5930add08848" />
 
 
