@@ -17,7 +17,7 @@ services:
     image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: bdd
+      MYSQL_DATABASE: db
     volumes:
       - ./script/mariadb-init.sql:/docker-entrypoint-initdb.d/mariadb-init.sql
     networks:
@@ -29,9 +29,9 @@ services:
     build: ./app
     environment:
       DB_HOST: db
-      DB_USER: utilisateurapp
-      DB_PASS: apppassword
-      DB_NAME: bdd
+      DB_USER: appuser
+      DB_PASS: apppass
+      DB_NAME: appdb
     networks:
       backend_net:
         ipv4_address: 172.31.0.2
