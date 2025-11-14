@@ -114,22 +114,25 @@ Construire et lancer la stack :
 ```
 docker-compose up --build -d
 ```
-Verifier que les conteneurs sont up :
+Vérifier que les conteneurs sont bien lancés :
 ```
 docker ps -a
 ```
+### Gestion via interface web, Portainer :
 Personnellement, j'utilise un conteneur qui permet de manager depuis une interface web (Portainer) :
 <img width="1858" height="559" alt="image" src="https://github.com/user-attachments/assets/d06e7b5c-8628-42f6-a9f5-7144c13ac9fa" />
 
-Je verifie que mon app est accessible depuis l'ip de ma VM Docker :
+Je verifie que l'application est accessible depuis l'IP de ta VM Docker :
+
 <img width="446" height="143" alt="image" src="https://github.com/user-attachments/assets/67caa1d0-a6db-4d0f-8b0f-afc700b7034f" />
 
-Je verifie egalement que j'accede a ma base de donnée, 2 methode, via le site web avec l'ip/health :
+Je verifie l’accès à la base de données via la page web /health :
+
 <img width="414" height="166" alt="image" src="https://github.com/user-attachments/assets/bae3b743-a4db-4473-9cac-fe9940277279" />
 
-Ensuite je me connecte au conteneur via l'interface web que j'ai prealablement installé :
+Ensuite je me connecte au conteneur (via Portainer) pour tester en CLI :
 <img width="1490" height="431" alt="image" src="https://github.com/user-attachments/assets/956822d3-95b1-4a46-a337-25e7448fdd75" />
-et j'exceute les commandes suivantes :
+Execution des commandes suivantes :
 ```
 apt update
 apt install mariadb-client
@@ -137,13 +140,25 @@ apt install mariadb-client
 Pour ma part c'est deja effectué en off :
 <img width="706" height="228" alt="image" src="https://github.com/user-attachments/assets/9d208663-ee4c-43c8-af1a-8930c23c99d0" />
 
-Puis je tente de me connecter via :
+Test de la connexion à MariaDB depuis le conteneur app :
 ```bash
 mysql -h 172.31.0.3 -u appuser -papppass
 ```
+La connexion s'effectue correctement :
 <img width="791" height="197" alt="image" src="https://github.com/user-attachments/assets/61ea5eba-0ed3-4d31-98c2-105da161adba" />
 
-<img width="1490" height="431" alt="image" src="https://github.com/user-attachments/assets/16636f11-0a62-4b52-bef3-9b82f125b548" />
+
+
+---
+
+### Test depuis la VM hôte Docker
+Effectue la même commande depuis la VM :
+```bash
+mysql -h 172.31.0.3 -u appuser -papppass
+```
+La connexion est refusée comme attendu :
+<img width="937" height="115" alt="image" src="https://github.com/user-attachments/assets/d7454eed-8671-48d0-98d6-5930add08848" />
+
 
 
 
