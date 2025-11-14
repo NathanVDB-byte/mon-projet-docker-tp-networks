@@ -112,6 +112,15 @@ FLUSH PRIVILEGES;
 
 Ce script est monté dans MariaDB et appliqué au premier lancement.
 
+- Cette configuration signifie que toutes les tentatives de connexion depuis une autre IP (autre conteneur ou depuis la VM Docker elle-même) seront refusées par MariaDB.
+
+- La sécurité est ainsi garantie au niveau de la base et du réseau Docker.
+
+- Il est également possible d'utiliser le nom du service au lieu de l'IP, mais pour Docker Compose et la prévisibilité réseau, le plus fiable reste l'IP fixe.
+
+**À retenir :**  
+Seul le conteneur app aura accès à la base, indépendamment des credentials. Toute autre machine ou conteneur du réseau backend_net se verra refuser la connexion.
+
 ---
 
 ## Déploiement
