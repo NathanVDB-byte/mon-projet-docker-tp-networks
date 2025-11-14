@@ -4,11 +4,13 @@ networks:
   backend_net:
     driver: bridge
     ipam:
+      driver: default
       config:
         - subnet: 172.31.0.0/24
   frontend_net:
     driver: bridge
     ipam:
+      driver: default
       config:
         - subnet: 172.31.1.0/24
 
@@ -21,8 +23,7 @@ services:
     volumes:
       - ./script/mariadb-init.sql:/docker-entrypoint-initdb.d/mariadb-init.sql
     networks:
-      backend_net:
-        ipv4_address: 172.31.0.3
+      - backend_net
     restart: unless-stopped
 
   app:
@@ -33,8 +34,7 @@ services:
       DB_PASS: apppassword
       DB_NAME: bdd
     networks:
-      backend_net:
-        ipv4_address: 172.31.0.2
+      - backend_net
     restart: unless-stopped
 
   proxy:
@@ -44,7 +44,6 @@ services:
     ports:
       - "80:80"
     networks:
-      backend_net:
-        ipv4_address: 172.31.0.4
-      frontend_net:
+      - frontend_net
+      - backend_net
     restart: unless-stopped
