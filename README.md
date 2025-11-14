@@ -81,6 +81,18 @@ services:
       frontend_net:
     restart: unless-stopped
 ```
+### Pourquoi des IP fixes pour les conteneurs
+Pour garantir une sécurité maximale lors de la connexion à la base de données, une IP fixe est attribuée aux conteneurs.
+Cette méthode évite toute incohérence liée au changement d'adresse IP à chaque redémarrage ou reconstruction des conteneurs.
+
+L'utilisateur MariaDB créé dans le script SQL (fichier mariadb-init.sql) est ainsi limité à cette IP unique :
+  - 172.31.0.3
+
+Avantage : Si l'app obtenait une IP différente, elle n'aurait plus accès à la base en raison de la restriction sur l'adresse IP spécifiée.
+
+Maintenabilité : L'affectation d'une IP fixe via Docker Compose (grâce à l'option ipv4_address dans chaque service) garantit que l'environnement reste stable, reproductible et sécurisé.
+
+Ainsi, on s'assures que seul le conteneur souhaité puisse ouvrir une connexion à la BDD, tout en évitant des bugs difficiles à diagnostiquer liés à de potentielles fluctuations d’adresses suite à des redémarrages ou des mises à jour de la stack.​
 
 ---
 
