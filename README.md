@@ -124,10 +124,13 @@ Vérifier que les conteneurs sont bien lancés :
 ```
 docker ps -a
 ```
-Verifier que les conteneurs sont bien lancés via Portainer (interface web) :
+### Gestion via interface web, Portainer :
 
-<img width="1498" height="478" alt="image" src="https://github.com/user-attachments/assets/cf2b9f95-f742-4f97-88fd-ef17e4681dce" />
+Personnellement, j'utilise un conteneur qui permet de manager depuis une interface web (Portainer) :
 
+<img width="1858" height="559" alt="image" src="https://github.com/user-attachments/assets/d06e7b5c-8628-42f6-a9f5-7144c13ac9fa" />
+
+---
 
 ## BONUS : Bloquer l'accès à la base de données pour tous sauf l'app
 
@@ -136,11 +139,6 @@ Pour renforcer la sécurité et garantir que seule l'application ait accès à l
 - Dans le fichier d'initialisation SQL (script/mariadb-init.sql), la création de l'utilisateur de la base se fait en spécifiant l'IP fixe du conteneur applicatif (par exemple 172.31.0.2) :
 
 ## Test du bonus
-
-### Gestion via interface web, Portainer :
-Personnellement, j'utilise un conteneur qui permet de manager depuis une interface web (Portainer) :
-
-<img width="1858" height="559" alt="image" src="https://github.com/user-attachments/assets/d06e7b5c-8628-42f6-a9f5-7144c13ac9fa" />
 
 Je verifie que l'application est accessible depuis l'IP de la VM Docker :
 
