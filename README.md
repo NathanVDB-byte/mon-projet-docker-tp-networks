@@ -90,7 +90,7 @@ services:
 ### app/Dockerfile
 
 Décrit la construction du conteneur Flask :
-
+```
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -100,18 +100,18 @@ COPY app.py /app/
 RUN pip install flask pymysql
 
 CMD ["python", "app.py"]
-
+```
 
 ---
 
 ## Sécurisation de la base de données
 
 Pour empêcher tout accès direct vers la base depuis la VM, un fichier d'initialisation `mariadb-init.sql` est placé dans le dossier `script` :
-
+```
 CREATE USER 'appuser'@'172.31.0.2' IDENTIFIED BY 'apppass';
 GRANT ALL PRIVILEGES ON appdb.* TO 'appuser'@'172.31.0.2';
 FLUSH PRIVILEGES;
-
+```
 
 Ce script est monté dans MariaDB et appliqué au premier lancement.
 
