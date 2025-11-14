@@ -28,7 +28,7 @@ docker-compose up --build -d
 ## Fichiers principaux
 
 ### compose.yml
-```
+```yaml
 Définit les services (db, app, proxy) et configure les réseaux et sous-réseaux personnalisés.
 
 Extrait exemple :
@@ -90,7 +90,7 @@ services:
 ### app/Dockerfile
 
 Décrit la construction du conteneur Flask :
-```
+```py
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -107,7 +107,7 @@ CMD ["python", "app.py"]
 ## Sécurisation de la base de données
 
 Pour empêcher tout accès direct vers la base depuis la VM, un fichier d'initialisation `mariadb-init.sql` est placé dans le dossier `script` :
-```
+```sql
 CREATE USER 'appuser'@'172.31.0.2' IDENTIFIED BY 'apppass';
 GRANT ALL PRIVILEGES ON appdb.* TO 'appuser'@'172.31.0.2';
 FLUSH PRIVILEGES;
