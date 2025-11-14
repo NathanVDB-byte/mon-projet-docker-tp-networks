@@ -36,53 +36,53 @@ Extrait exemple :
 version: '3.9'
 
 networks:
-backend_net:
-driver: bridge
-ipam:
-config:
-- subnet: 172.31.0.0/24
-frontend_net:
-driver: bridge
-ipam:
-config:
-- subnet: 172.31.1.0/24
+  backend_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.31.0.0/24
+  frontend_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.31.1.0/24
 
 services:
-db:
-image: mariadb:latest
-environment:
-MYSQL_ROOT_PASSWORD: rootpassword
-MYSQL_DATABASE: appdb
-volumes:
-- ./script/mariadb-init.sql:/docker-entrypoint-initdb.d/mariadb-init.sql
-networks:
-backend_net:
-ipv4_address: 172.31.0.3
-restart: unless-stopped
+  db:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: appdb
+    volumes:
+      - ./script/mariadb-init.sql:/docker-entrypoint-initdb.d/mariadb-init.sql
+    networks:
+      backend_net:
+        ipv4_address: 172.31.0.3
+    restart: unless-stopped
 
-app:
-build: ./app
-environment:
-DB_HOST: db
-DB_USER: appuser
-DB_PASS: apppass
-DB_NAME: appdb
-networks:
-backend_net:
-ipv4_address: 172.31.0.2
-restart: unless-stopped
+  app:
+    build: ./app
+    environment:
+      DB_HOST: db
+      DB_USER: appuser
+      DB_PASS: apppass
+      DB_NAME: appdb
+    networks:
+      backend_net:
+        ipv4_address: 172.31.0.2
+    restart: unless-stopped
 
-proxy:
-image: nginx:latest
-volumes:
-- ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
-ports:
-- "80:80"
-networks:
-backend_net:
-ipv4_address: 172.31.0.4
-frontend_net:
-restart: unless-stopped
+  proxy:
+    image: nginx:latest
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "80:80"
+    networks:
+      backend_net:
+        ipv4_address: 172.31.0.4
+      frontend_net:
+    restart: unless-stopped
 
 
 ---
